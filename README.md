@@ -19,6 +19,9 @@ This example requires the following:
 2. Run the following curl command to upload the `cat.jpeg` image to S3:
 
         curl -T ./cat.jpeg -H "Content-Type:image/jpeg" http://localhost:5050/api/v1/upload
+        
+    If successful, you will now see that `cat.jpeg` has been uploaded to S3 with a UUID for a filename. Download the file from S3 and
+    open it to validate that it was uploaded correctly.
 
 ## Bugs and Feedback
 For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/ratpack-s3upload-example/issues).
