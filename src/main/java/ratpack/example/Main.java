@@ -14,6 +14,7 @@ public class Main {
 
     public static void main(String... args) throws Exception {
         ServerConfig serverConfig = ServerConfig.builder()
+                .env()
                 .baseDir(BaseDir.find())
                 .build();
 

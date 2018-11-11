@@ -7,8 +7,8 @@ An example of doing a streaming upload of a file to [Amazon S3](https://aws.amaz
 This example requires the following:
 
 1. AWS Account
-2. Access Key and Secret Key configured on your machine
-3. An S3 bucket configured in your AWS account that can be access by your keys
+2. AWS Access Key ID and AWS Secret Access Key configured on your machine
+3. S3 bucket configured in your AWS account that can be accessed by your keys
 
 ## Running the Example
 
