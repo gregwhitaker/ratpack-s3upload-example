@@ -1,4 +1,5 @@
 # ratpack-s3upload-example
+[![Build Status](https://travis-ci.org/gregwhitaker/ratpack-s3upload-example.svg?branch=master)](https://travis-ci.org/gregwhitaker/ratpack-s3upload-example)
 
 An example of doing a streaming upload of a file to [Amazon S3](https://aws.amazon.com/s3/) using [Ratpack](https://ratpack.io).
 
