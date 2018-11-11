@@ -2,6 +2,15 @@
 
 An example of doing a streaming upload of a file to [Amazon S3](https://aws.amazon.com/s3/) using [Ratpack](https://ratpack.io).
 
+## Prerequisites
+This example requires the following:
+
+1. AWS Account
+2. Access Key and Secret Key configured on your machine
+3. An S3 bucket configured in your AWS account that can be access by your keys
+
+## Running the Example
+
 ## Bugs and Feedback
 For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/ratpack-s3upload-example/issues).
 
