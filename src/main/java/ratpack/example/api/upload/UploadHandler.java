@@ -11,13 +11,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ratpack.example.s3.S3WritableByteChannel;
 import ratpack.exec.Blocking;
-import ratpack.exec.Promise;
 import ratpack.handling.Context;
 import ratpack.handling.Handler;
 
 import java.io.IOException;
 import java.util.UUID;
 
+/**
+ * Handler responsible for uploading the incoming file to S3.
+ */
 public class UploadHandler implements Handler {
     private static final Logger LOG = LoggerFactory.getLogger(UploadHandler.class);
 
@@ -66,13 +68,7 @@ public class UploadHandler implements Handler {
 
                     @Override
                     public void onError(Throwable t) {
-                        try {
-                            s3Channel.close();
-                        } catch (IOException e) {
-                            // noop
-                        } finally {
-                            ctx.error(t);
-                        }
+                        ctx.error(t);
                     }
 
                     @Override

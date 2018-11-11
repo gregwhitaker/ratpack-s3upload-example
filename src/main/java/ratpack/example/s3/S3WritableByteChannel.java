@@ -23,6 +23,9 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A {@link WritableByteChannel} implementation that writes to Amazon S3.
+ */
 public class S3WritableByteChannel implements WritableByteChannel {
     private static final Logger LOG = LoggerFactory.getLogger(S3WritableByteChannel.class);
 
@@ -38,10 +41,27 @@ public class S3WritableByteChannel implements WritableByteChannel {
     private int partNumber = 1;
     private final MessageDigest partHash;
 
+    /**
+     * Create a new instance of {@link S3WritableByteChannel}.
+     *
+     * @param amazonS3 Amazon S3 client
+     * @param s3Bucket S3 bucket name
+     * @param s3Key S3 object key
+     * @throws IOException
+     */
     public S3WritableByteChannel(final AmazonS3 amazonS3, final String s3Bucket, final String s3Key) throws IOException {
         this(amazonS3, s3Bucket, s3Key, null);
     }
 
+    /**
+     * Create a new instance of {@link S3WritableByteChannel}.
+     *
+     * @param amazonS3 Amazon S3 client
+     * @param s3Bucket S3 bucket name
+     * @param s3Key S3 object key
+     * @param objectMetadata S3 object metadata
+     * @throws IOException
+     */
     public S3WritableByteChannel(final AmazonS3 amazonS3, final String s3Bucket, final String s3Key, final ObjectMetadata objectMetadata) throws IOException {
         this.amazonS3 = amazonS3;
         this.s3Bucket = s3Bucket;
@@ -120,6 +140,11 @@ public class S3WritableByteChannel implements WritableByteChannel {
         }
     }
 
+    /**
+     * Flushes the upload buffer to S3.
+     *
+     * @throws IOException
+     */
     private void flush() throws IOException {
         buffer.flip();
         ByteArrayInputStream inStream = new ByteArrayInputStream(buffer.array());
