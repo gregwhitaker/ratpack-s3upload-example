@@ -12,11 +12,13 @@ This example requires the following:
 
 ## Running the Example
 
-1. Run the following command to start the application:
+1. Update the `bucket` configuration option in `config.yml` to your S3 bucket name.
+
+2. Run the following command to start the application:
 
         ./gradlew run
 
-2. Run the following curl command to upload the `cat.jpeg` image to S3:
+3. Run the following curl command to upload the `cat.jpeg` image to S3:
 
         curl -T ./cat.jpeg -H "Content-Type:image/jpeg" http://localhost:5050/api/v1/upload
         

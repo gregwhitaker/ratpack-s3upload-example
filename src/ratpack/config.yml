@@ -1,0 +1,5 @@
+# Configuration
+
+s3:
+  # Put the name of your S3 bucket here
+  bucket: ratpack-s3upload-example

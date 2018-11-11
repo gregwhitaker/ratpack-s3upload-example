@@ -4,11 +4,13 @@ import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
 import com.amazonaws.regions.Regions;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.google.inject.Inject;
 import io.netty.buffer.ByteBuf;
 import org.reactivestreams.Subscriber;
 import org.reactivestreams.Subscription;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ratpack.example.config.S3Config;
 import ratpack.example.s3.S3WritableByteChannel;
 import ratpack.exec.Blocking;
 import ratpack.handling.Context;
@@ -23,11 +25,14 @@ import java.util.UUID;
 public class UploadHandler implements Handler {
     private static final Logger LOG = LoggerFactory.getLogger(UploadHandler.class);
 
+    @Inject
+    private S3Config s3Config;
+
     @Override
     public void handle(Context ctx) throws Exception {
         ctx.getRequest().getBodyStream()
                 .subscribe(new Subscriber<ByteBuf>() {
-                    final String s3Bucket = "ratpack-s3upload-example";
+                    final String s3Bucket = s3Config.bucket;
                     final String s3Key =  UUID.randomUUID().toString();
 
                     private AmazonS3 client = AmazonS3ClientBuilder.standard()

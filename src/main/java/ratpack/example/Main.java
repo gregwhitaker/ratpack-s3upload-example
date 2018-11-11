@@ -2,6 +2,7 @@ package ratpack.example;
 
 import ratpack.example.api.ApiModule;
 import ratpack.example.api.upload.UploadHandlers;
+import ratpack.example.config.S3Config;
 import ratpack.guice.Guice;
 import ratpack.server.BaseDir;
 import ratpack.server.RatpackServer;
@@ -14,7 +15,8 @@ public class Main {
 
     public static void main(String... args) throws Exception {
         ServerConfig serverConfig = ServerConfig.builder()
-                .env()
+                .yaml("config.yml")
+                .require("/s3", S3Config.class)
                 .baseDir(BaseDir.find())
                 .build();
 
