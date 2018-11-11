@@ -2,6 +2,9 @@
 
 An example of doing a streaming upload of a file to [Amazon S3](https://aws.amazon.com/s3/) using [Ratpack](https://ratpack.io).
 
+## Bugs and Feedback
+For bugs, questions, and discussions please use the [Github Issues](https://github.com/gregwhitaker/ratpack-s3upload-example/issues).
+
 ## License
 MIT License
 
